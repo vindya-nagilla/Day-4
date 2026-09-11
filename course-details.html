@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course details at Sumathi Reddy Institute of Technology for Women.">
+    <title>Course Details | SRITW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="course-details.css">
+</head>
+<body>
+    <header class="course-header">
+        <a class="back-link" href="index2.html#academics">&#8592; Back to programmes</a>
+        <a class="mini-brand" href="index2.html#home"><img src="https://yt3.googleusercontent.com/HMF9xqe_d_8dkk8z1lPoKsXuu98ydPnIXluZb8V5ecCn-g7J5OVO7U3tJzw5nS5bAsCB6XNQqQ=s900-c-k-c0x00ffffff-no-rj" alt="Sumathi Reddy Institute logo"><span>SRITW</span></a>
+    </header>
+    <main class="course-main">
+        <p class="eyebrow">Course information / SRITW</p>
+        <section class="course-hero">
+            <div>
+                <p class="course-number" id="course-number">01</p>
+                <h1 id="course-title">Engineering &amp; Technology</h1>
+                <p class="course-intro" id="course-intro">Build strong foundations in design, programming, and problem-solving through practical projects and guided learning.</p>
+            </div>
+            <div class="course-facts">
+                <div><span>Duration</span><strong id="course-duration">4 years</strong></div>
+                <div><span>Focus</span><strong id="course-focus">Core engineering</strong></div>
+                <div><span>Location</span><strong>Hanumakonda, Telangana</strong></div>
+            </div>
+        </section>
+        <section class="course-content">
+            <div>
+                <p class="section-label">What you will learn</p>
+                <h2>Turn curiosity<br>into <em>capability.</em></h2>
+            </div>
+            <div>
+                <p id="course-detail">This course combines classroom learning with practical projects, mentorship, and opportunities to apply knowledge to meaningful challenges.</p>
+                <ul id="course-topics"></ul>
+            </div>
+        </section>
+        <section class="course-next">
+            <div><p class="section-label">Ready to begin?</p><h2>Your next chapter<br>starts <em>here.</em></h2></div>
+            <a class="primary-button" href="index2.html#register">Register your interest <span aria-hidden="true">&#8594;</span></a>
+        </section>
+    </main>
+    <script>
+        const courses = {
+            engineering: { number: "01", title: "Engineering & Technology", intro: "Build strong foundations in design, programming, and problem-solving through practical projects and guided learning.", duration: "4 years", focus: "Core engineering", detail: "Develop the technical confidence to design, build, test, and improve solutions for real-world needs.", topics: ["Engineering mathematics and fundamentals", "Programming and emerging technologies", "Hands-on projects and industry exposure"] },
+            computer: { number: "02", title: "Computer Applications", intro: "Learn software development, databases, web technologies, and digital tools that turn ideas into useful applications.", duration: "3 years", focus: "Software & web", detail: "Learn to create reliable digital products while building a practical understanding of software, data, and user needs.", topics: ["Programming and application development", "Database and web technologies", "Project-based digital problem-solving"] },
+            science: { number: "03", title: "Science & Innovation", intro: "Explore scientific thinking, research methods, and innovation through experiments that connect classroom learning to real-world challenges.", duration: "3 years", focus: "Research & discovery", detail: "Build an investigative mindset through experiments, collaboration, and a strong foundation for future study or innovation.", topics: ["Scientific methods and core concepts", "Research, experimentation, and analysis", "Innovation projects and communication skills"] }
+        };
+        const selectedCourse = courses[new URLSearchParams(window.location.search).get("course")] || courses.engineering;
+        document.title = `${selectedCourse.title} | SRITW`;
+        document.querySelector("#course-number").textContent = selectedCourse.number;
+        document.querySelector("#course-title").textContent = selectedCourse.title;
+        document.querySelector("#course-intro").textContent = selectedCourse.intro;
+        document.querySelector("#course-duration").textContent = selectedCourse.duration;
+        document.querySelector("#course-focus").textContent = selectedCourse.focus;
+        document.querySelector("#course-detail").textContent = selectedCourse.detail;
+        document.querySelector("#course-topics").innerHTML = selectedCourse.topics.map((topic) => `<li>${topic}</li>`).join("");
+    </script>
+</body>
+</html>

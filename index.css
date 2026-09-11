@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(210, 242, 242);
+}
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.title{
+    text-align: center;
+}
+h1{
+    color: red;
+}
+h2{
+    color: blue;
+    background-color: pink;
+    padding: 10px;
+}
+.card{
+    width: 260px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform .5s, border-shadow .5s;
+}
+img{
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.content h3{
+    color: red;
+}
+.social-icon{
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon{
+    height: 50px;
+    width: 50px;
+    background-color: blueviolet;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 2em;
+    transition: transform .4s;
+}
+.icon:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 15px gray;
+}
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 15px gray;
+}
+.container{
+    display: flex;
+    gap: 30px;
+    justify-content: space-evenly;
+}

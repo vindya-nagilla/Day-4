@@ -1,31 +1,77 @@
 body{
-    background-color: rgb(210, 242, 242);
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f8f2, #e8f1ff);
+    margin: 0;
+    padding: 24px;
+    animation: page-fade-in .7s ease-out;
 }
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+.logo-clickable{
+    width: min(380px, 100%);
+    margin: 0 auto 24px;
+    padding: 14px;
+    background-color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+}
+.logo-clickable:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(70, 70, 70, .2);
+}
+.logo-clickable img{
+    display: block;
+    width: 100%;
+    border-radius: 8px;
 }
 .title{
     text-align: center;
 }
 h1{
     color: red;
+    cursor: pointer;
+    transition: color .3s, transform .3s;
 }
 h2{
     color: blue;
     background-color: pink;
     padding: 10px;
+    cursor: pointer;
+    transition: background-color .3s, transform .3s;
+}
+h1:hover,
+h2:hover{
+    transform: translateY(-3px);
+}
+h1:hover{
+    color: #c2185b;
+}
+h2:hover{
+    background-color: #ffd1e3;
+}
+.clickable{
+    transition: transform .25s, box-shadow .25s;
 }
 .card{
     width: 260px;
-    background-color: lightgreen;
+    background-color: white;
     padding: 15px;
     border-radius: 15px;
-    transition: transform .5s, border-shadow .5s;
+    cursor: pointer;
+    transition: transform .5s, box-shadow .5s;
 }
 img{
     width: 100%;
     border-radius: 30px;
     overflow: hidden;
+    transition: transform .4s ease;
+}
+.card:hover > img{
+    transform: scale(1.03);
 }
 .content h3{
     color: red;
@@ -51,8 +97,38 @@ img{
     transform: scale(1.1);
     box-shadow: 0 0 15px lightpink;
 }
+.is-clicked{
+    animation: click-pop .45s ease;
+}
+.card.is-clicked{
+    box-shadow: 0 0 0 4px rgba(255, 105, 180, .35), 0 12px 25px rgba(70, 70, 70, .25);
+}
+.logo-clickable.is-clicked,
+.clickable.is-clicked{
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .8), 0 8px 20px rgba(70, 70, 70, .2);
+}
+@keyframes click-pop{
+    0%{ transform: scale(1); }
+    45%{ transform: scale(1.06); }
+    100%{ transform: scale(1); }
+}
 .container{
+    width: 100%;
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+}
+@media (max-width: 600px){
+    body{
+        padding: 16px;
+    }
+    .card{
+        width: 100%;
+        max-width: 340px;
+    }
+}
+@keyframes page-fade-in{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
 }

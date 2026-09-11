@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div class="logo-clickable">
+        <img src="logo1.png" alt="Team-NG7471 logo">
+    </div>
     <div class="title">
-        <h1>Team-NG7471</h1>
-        <h2>Project Title</h2>
+        <h1 class="clickable">Team-NG7471</h1>
+        <h2 class="clickable">Project Title</h2>
         <p>Project problem statement</p>
     </div>
     <div class="container">
@@ -104,5 +107,18 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("click", (event) => {
+            const target = event.target.closest(".card, .logo-clickable, .clickable");
+
+            if (!target) {
+                return;
+            }
+
+            target.classList.remove("is-clicked");
+            void target.offsetWidth;
+            target.classList.add("is-clicked");
+        });
+    </script>
 </body>
 </html>
